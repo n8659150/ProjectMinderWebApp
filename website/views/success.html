@@ -50,7 +50,7 @@
 					             	</div>
 					            </div>
 								<!-- display the following two fields if Admin -->
-					            <div class="form-group" ng-if="currentUser.firstname == 'admin'">
+					            <div class="form-group" ng-if="currentUser.role == 'admin'">
 					              	<label for="supervisor" class="col-sm-3 control-label">Supervisor FirstName</label>
 					              	<div class="col-sm-7">
 						                <input  class="form-control" 
@@ -62,7 +62,7 @@
 					              	</div>
 					            </div>
 
-					            <div class="form-group" ng-if="currentUser.firstname == 'admin'">
+					            <div class="form-group" ng-if="currentUser.role == 'admin'">
 					              	<label for="supervisor" class="col-sm-3 control-label">Supervisor LastName</label>
 					              	<div class="col-sm-7">
 						                <input class="form-control" 
@@ -76,7 +76,7 @@
 								<!-- END display these fields if Admin -->
 
 								<!-- display these fields if NON-Admin -->
-					            <div class="form-group" ng-if="currentUser.firstname != 'admin'"
+					            <div class="form-group" ng-if="currentUser.role != 'admin'"
 					            >
 					              	<label for="supervisor" class="col-sm-3 control-label">Supervisor FirstName</label>
 					              	<div class="col-sm-7">
@@ -89,7 +89,7 @@
 					              	</div>
 					            </div>
 
-					            <div class="form-group" ng-if="currentUser.firstname != 'admin'">
+					            <div class="form-group" ng-if="currentUser.role != 'admin'">
 					              	<label for="supervisor" class="col-sm-3 control-label">Supervisor LastName</label>
 					              	<div class="col-sm-7">
 						                <input  class="form-control" 
@@ -306,7 +306,7 @@
 					            <!-- END Unit -->
 
 					            <!-- Supervisor FirstName when ADMIN(can overwrite)-->
-					            <div ng-if="currentUser.firstname == 'admin'" class="form-group">
+					            <div ng-if="currentUser.role == 'admin'" class="form-group">
 						            <label for="supervisor" class="col-sm-3 control-label">Supervisor FirstName</label>
 						            <div class="col-sm-7">
 						                <input  class="form-control" 
@@ -320,7 +320,7 @@
 								<!-- END Supervisor FirstName when ADMIN(can overwrite)-->
 
 								<!-- Supervisor LastName -->
-					            <div class="form-group" ng-if="currentUser.firstname == 'admin'">
+					            <div class="form-group" ng-if="currentUser.role == 'admin'">
 					              	<label for="supervisor" class="col-sm-3 control-label">Supervisor LastName</label>
 					              	<div class="col-sm-7">
 						                <input  class="form-control" 
@@ -334,7 +334,7 @@
 					            <!-- END Supervisor LastName when ADMIN(can overwrite)-->
 
 					            <!-- Supervisor FirstName when normal(read-only)-->
-					            <div ng-if="currentUser.firstname != 'admin'" class="form-group">
+					            <div ng-if="currentUser.role != 'admin'" class="form-group">
 						            <label for="supervisor" class="col-sm-3 control-label">Supervisor FirstName</label>
 						            <div class="col-sm-7">
 						                <input  class="form-control" 
@@ -349,7 +349,7 @@
 								<!-- END Supervisor FirstName when normal(read-only)-->
 
 								<!-- Supervisor LastName when normal(read-only) -->
-					            <div class="form-group" ng-if="currentUser.firstname != 'admin'">
+					            <div class="form-group" ng-if="currentUser.role != 'admin'">
 					              	<label for="supervisor" class="col-sm-3 control-label">Supervisor LastName</label>
 					              	<div class="col-sm-7">
 						                <input  class="form-control" 
@@ -812,7 +812,7 @@
 					<!-- <tr ng-repeat="project in ctr.ProjectMinderItems" ng-click="ctr.setSelectedItem($index)"> This enables user to edit information by clicking on any parts of the row.--> 
 
 	                <!-- show all projects when login as admin -->
-	                <tr ng-show="currentUser.firstname == 'admin'" ng-hide="currentUser.firstname != 'admin'" dir-paginate="project in projectItems | filter:query | itemsPerPage:8" pagination-id="admin">
+	                <tr ng-show="currentUser.role == 'admin'" ng-hide="currentUser.role != 'admin'" dir-paginate="project in projectItems | filter:query | itemsPerPage:8" pagination-id="admin">
 	                    <td class="tableRowLineHeight" data-toggle="modal" data-target="#detailForm" ng-click="setSelectedProjectItem(project.$id)">{{project.name}}</td>
 	                    <td class="tableRowLineHeight" data-toggle="modal" data-target="#detailForm" ng-click="setSelectedProjectItem(project.$id)">{{project.unit}}</td>
 	                  	<td class="tableRowLineHeight" data-toggle="modal" data-target="#detailForm" ng-click="setSelectedProjectItem(project.$id)">{{project.supervisorFirstName+" "+project.supervisorLastName}}</td>
@@ -859,7 +859,7 @@
 					
 
 	                <!-- show only the currentUser's projects when not admin -->
-	                <tr ng-show="currentUser.firstname !== 'admin'" ng-hide="currentUser.firstname == 'admin'" dir-paginate="project in projectItems | filter:{supervisorFirstName:currentUser.firstname,supervisorLastName:currentUser.lastname} | filter:query | itemsPerPage:8" pagination-id="staff">
+	                <tr ng-show="currentUser.role !== 'admin'" ng-hide="currentUser.role == 'admin'" dir-paginate="project in projectItems | filter:{supervisorFirstName:currentUser.firstname,supervisorLastName:currentUser.lastname} | filter:query | itemsPerPage:8" pagination-id="staff">
 	                  	<td class="tableRowLineHeight" data-toggle="modal" data-target="#detailForm" ng-click="setSelectedProjectItem(project.$id)">{{project.name}}</td>
 	                  	<td class="tableRowLineHeight" data-toggle="modal" data-target="#detailForm" ng-click="setSelectedProjectItem(project.$id)">{{project.unit}}</td>
 	                  	<td class="tableRowLineHeight" data-toggle="modal" data-target="#detailForm" ng-click="setSelectedProjectItem(project.$id)">{{project.supervisorFirstName+" "+project.supervisorLastName}}</td>
