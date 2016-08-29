@@ -694,3 +694,20 @@ input.ng-valid.ng-touched {
 	-webkit-appearance: none;
 	margin-bottom:15px;
 }
+
+.qutRadio{
+  margin: 0 10px 0 10px !important;
+  height: auto;
+  text-align: left;
+}
+
+.roleGroup{
+  width: 93%;
+}
+
+.roleGroup span {
+  color: #475B62;
+  font-size: 17px;
+  font-weight: normal;
+  opacity: 0.6;
+}

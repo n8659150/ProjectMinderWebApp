@@ -50,7 +50,8 @@ myApp.factory('Authentication',
           regUser: regUser.uid,
           firstname: user.firstname,
           lastname: user.lastname,
-          email:  user.email
+          email:  user.email,
+          role:  user.role
         }); //user info
 
         $rootScope.message = "Hi " + user.firstname +
